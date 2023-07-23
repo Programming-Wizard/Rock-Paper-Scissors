@@ -11,9 +11,12 @@
 <body>
     <center>
         <h1>Rock Paper scissor</h1>
-        <h2>Enter : Rock or Paper or Scissor</h2>
-        <input type="text" name="userInput" id="userInput">
-        <button onclick="output()" style="padding: 10px 25px;">Ok</button><br><br>
+        <h2>Choose : Rock or Paper or Scissor</h2>
+        <button id="rock" style="padding: 20px 25px;" onclick="setAsRock()">Rock</button>
+        <button id="paper" style="padding: 20px 25px;" onclick="setAsPaper()">Paper</button>
+        <button id="scissor" style="padding: 20px 25px;" onclick="setAsScissor()">Scissor</button>
+        <div style="background-color: cadetblue; width: 10%; padding: 1%; margin-top: 5px;" id="PlayerScore">Player Score : 0</div>
+        <div style="background-color: cadetblue; width: 10%; padding: 1%;" id="ComputerScore">Computer Score : 0</div>
     </center>
 </body>
 

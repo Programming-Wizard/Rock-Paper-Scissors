@@ -1,32 +1,45 @@
-function output()
-{
-    let rawInput = document.getElementById("userInput").value;
-    const getuserInput = rawInput.toLowerCase();
-    const choices = ["rock", "paper", "scissor"];
-    const computerChoice = Math.floor(Math.random() * choices.length);
-    
-    if(getuserInput == "")
-    {
-        alert("enter your choice : Rock, paper, scissor");
-    }
-    
-    else if(getuserInput == "rock" || getuserInput == "paper" || getuserInput == "scissor")
-    {
-        if(getuserInput == choices[computerChoice])
-        {
-            alert("Its a TIE ! computer chose " + choices[computerChoice] + " and you chose " + rawInput);
-        }
+let getuserInput = "";
+let playerScore = 0;
+let computerScore = 0;
 
-        else if(getuserInput == "rock" && choices[computerChoice] == "scissor" || getuserInput == "paper" && choices[computerChoice] == "rock" || getuserInput == "scissor" && choices[computerChoice] == "paper")
-        {
-            alert("you win ! the computer choosed " + choices[computerChoice] + " and you choosed " + rawInput);
-        }
-        else if(getuserInput == "rock" && choices[computerChoice] == "paper" || getuserInput == "paper" && choices[computerChoice] == "scissor" || getuserInput == "scissor" && choices[computerChoice] == "rock"){
-            alert("You lose :( the computer choosed " + choices[computerChoice] + " and you choosed " + rawInput);
-        }
+function updateScore()
+{    
+    document.getElementById('PlayerScore').textContent = "Player Score: " + playerScore;
+    document.getElementById('ComputerScore').textContent = "Computer Score: " + computerScore;
+}
+function output() {
+  const choices = ["rock", "paper", "scissor"];
+  const computerChoice = Math.floor(Math.random() * choices.length);
 
-    }
-    else{
-        alert("you have entered either something else than the options or you have typo");
-    }
+  if (getuserInput === choices[computerChoice]) {
+    alert("It's a TIE! Computer chose " + choices[computerChoice] + " and you chose " + getuserInput);
+  } else if (
+    (getuserInput === "rock" && choices[computerChoice] === "scissor") ||
+    (getuserInput === "paper" && choices[computerChoice] === "rock") ||
+    (getuserInput === "scissor" && choices[computerChoice] === "paper")
+  ) {
+    alert("You win! The computer chose " + choices[computerChoice] + " and you chose " + getuserInput);
+    playerScore++;
+    updateScore();
+    
+  } else {
+    alert("You lose :( The computer chose " + choices[computerChoice] + " and you chose " + getuserInput);
+    computerScore++;
+    updateScore();
+  }
+}
+
+function setAsRock() {
+  getuserInput = "rock";
+  output();
+}
+
+function setAsPaper() {
+  getuserInput = "paper";
+  output();
+}
+
+function setAsScissor() {
+  getuserInput = "scissor";
+  output();
 }
